@@ -1,0 +1,7 @@
+*[
+    Copper|2
+    Bronze|2
+    Iron|4
+    Gold|5
+    Tungsten|10
+]*

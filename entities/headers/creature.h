@@ -3,6 +3,8 @@
 #include <vector>
 #include <string>
 #include "item.h"
+#include "biome.h"
+
 class creature{
     
     //This is hideous, probably because Im a dogshit programmer
@@ -21,7 +23,7 @@ class creature{
     void die();
 
     bool canBreathe(std::string atmosphericOxidiser);
-
+    
     bool respire();
 
     bool metabolise();
