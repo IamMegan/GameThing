@@ -3,10 +3,28 @@
 #include <stdlib.h>
 
 using namespace std; 
+bool running = false;
+long step = 0;    
 
+void Step(){
+    step++;
+}
 
+bool Stop(){
+    return true;
+}
+    
 int main(int argc, char **argv){
+    running = true;
+    while(running){
+        if(Stop()){
+            running = false;
+            break;
+        } 
 
-    return 0;
+    //MUST REMAIN AT END
+        Step();
+    }
+    
 
 }

@@ -1,10 +1,10 @@
 #include <iostream>
 #include <string.h>
 #include <stdlib.h>
-
+#include "./headers/creature.h"
 using namespace std; 
 
-class Character{
+class Character : public creature{
     private:int strn, def, mag, mnd;
     private:string name;
 
