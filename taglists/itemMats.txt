@@ -1,5 +1,9 @@
+
+    size, weight, brittleness, density, conductivity, meltingPoint, boilingPoint;
+
+
 *[
-    Copper|2
+    Copper|2|3|
     Bronze|2
     Iron|4
     Gold|5
