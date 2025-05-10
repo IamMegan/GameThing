@@ -37,16 +37,26 @@ Tag getTag(std::string tagName);
 
 //Load tags into active memory to preform operations on.
 void loadTags(){
-    int i = 0;
+    //int i = 0;
+    std::string currentLine = "";
     while(true){
         if(tagList.eof()){
             std::cout << "TagList EOF!\n";
             break;
         }
+        /*
             tagListRawVector.resize(i+1);
             std::getline(tagList, tagListLine);
             tagListRawVector[i] = tagListLine;
             i++;
+        */
+        getline(tagList, currentLine);
+        if(currentLine.compare("[*")){
+            while(currentLine != "*]"){
+            //TODO
+            }
+        }
+        
         }
     
         if(tagListRawVector.size() == 0){
