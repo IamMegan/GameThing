@@ -1,10 +1,8 @@
-size, weight, brittleness, density, conductivity, meltingPoint, boilingPoint;
+template:
+	name|color|brittleness|density|conductivity|meltingPoint|boilingPoint|bulkMod|isMetal|isFerromagnetic|
 
+to be added to later
 
 *[
-    Copper|2|3|
-    Bronze|2
-    Iron|4
-    Gold|5
-    Tungsten|10
+    
 ]*

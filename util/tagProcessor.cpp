@@ -3,11 +3,6 @@
 #include <fstream>
 #include <vector>
 
-struct Tag{
-    std::string Name;
-    std::vector<std::string> attributes;
-};
-
 std::fstream tagList;
 std::string tagListName = "";
 std::string tagListLine = "";
@@ -15,7 +10,7 @@ std::vector<std::string> tagListRawVector;
 std::vector<Tag> tagListVector;
 
 
-Tag getTag(std::string tagName);
+
 void loadTags();
 void printVec();
 void pruneTags();
@@ -32,8 +27,6 @@ int main(int argc, char** argv){;
     printVec();
     return 0;
 }
-
-Tag getTag(std::string tagName);
 
 //Load tags into active memory to preform operations on.
 void loadTags(){
@@ -53,7 +46,7 @@ void loadTags(){
         getline(tagList, currentLine);
         if(currentLine.compare("[*")){
             while(currentLine != "*]"){
-            //TODO
+	            
             }
         }
         
