@@ -8,7 +8,7 @@
 std::fstream file;
 std::string fileBuff;
 std::string fileType;
-std::stringstream stream(fileBuff);
+std::stringstream fstream(fileBuff);
 
 void loadFile();
 
@@ -27,15 +27,9 @@ int main(int argc, char** argv){;
 void loadFile(){
     std::string token;
     while(!file.eof()){
-
-      //Must research stream stream more
-
-      switch (1) {
-
-        default:
-
-          break;
-      }
+      
+      //will most likely need regex knowledge, or I will be damned doing this. 
+      
     }
 }
 
