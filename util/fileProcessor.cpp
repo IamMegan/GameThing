@@ -14,7 +14,7 @@ void loadFile();
 
 int main(int argc, char** argv){;
     file.open(argv[1]);
-    if(!tagList){
+    if(!file){
       
     }
     else{
@@ -30,12 +30,7 @@ void loadFile(){
 
       //Must research stream stream more
 
-      switch (token) {
-        case "element":
-
-        case "alloy":
-
-        case "book":
+      switch (1) {
 
         default:
 

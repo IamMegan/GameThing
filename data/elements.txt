@@ -1,3 +1,5 @@
+$material
+
 # Color is given in hex code, dencity in g/cm3,all temperatures in Kelvin, Bulk Modulus in Gigapascals. variables that start with 
 {
   name("copper");
