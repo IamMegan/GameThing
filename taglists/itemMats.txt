@@ -1,8 +1,0 @@
-template:
-	name|color|brittleness|density|conductivity|meltingPoint|boilingPoint|bulkMod|isMetal|isFerromagnetic|
-
-to be added to later
-
-*[
-    
-]*

@@ -1,0 +1,36 @@
+# Color is given in hex code, dencity in g/cm3,all temperatures in Kelvin, Bulk Modulus in Gigapascals. variables that start with 
+{
+  name("copper");
+  color(0xF16B20);
+  density(8.935);
+  meltingPoint(1357.77);
+  boilingPoint(2835);
+  bulkMod(140)
+  isMetal(true);
+  isFerromagnetic(false);
+  isRadioactive(false);
+}
+
+{
+  name("iron");
+  color(0x4A4A4A);
+  density(7.86);
+  meltingPoint(1811);
+  boilingPoint(3134);
+  bulkMod()
+  isMetal(true);
+  isFerromagnetic(true);
+  isRadioactive(false);
+}
+
+{
+  name("gold");
+  color(0xFFEA00);
+  density(19.3);
+  meltingPoint(1337.33);
+  boilingPoint(3129);
+  bulkMod()
+  isMetal(true);
+  isFerromagnetic(false);
+  isRadioactive(false);
+}

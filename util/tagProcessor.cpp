@@ -2,60 +2,62 @@
 #include <string>
 #include <fstream>
 #include <vector>
+#include <sstream>
+
+struct element{  
+  std::string name;
+  int color;
+  float density, meltingPoint, boilingPoint, bulkMod; 
+  bool isMetal, isFerromagnetic, isRadioactive;
+};
 
 std::fstream tagList;
-std::string tagListName = "";
-std::string tagListLine = "";
+std::string tagListString;
 std::vector<std::string> tagListRawVector;
-std::vector<Tag> tagListVector;
+std::vector<element> tagListVector;
+std::stringstream stream(tagListString);
 
 
-
-void loadTags();
-void printVec();
-void pruneTags();
+//struct buildElements();
+void loadTagsVector();
+//void printVec();
+//void pruneTags();
 
 int main(int argc, char** argv){;
     tagList.open(argv[1]);
-    try{
-        loadTags();
+    if(!tagList){
+      loadTagsVector();
     }
-    catch(std::exception& e){
-        std::cerr << "File not opened\n";
+    else{
+      std::cout << "File not opened." << "\n";
     }
-    pruneTags();
-    printVec();
+//    pruneTags();
+//    printVec();
     return 0;
 }
 
 //Load tags into active memory to preform operations on.
-void loadTags(){
-    //int i = 0;
-    std::string currentLine = "";
+void loadTagsVector(){
+    /*
+    if(tagListRawVector.size() == 0){
+      std::cout << "Tag List Vector is empty\n";
+    }
+    */
+    std::string token;
+    int i = 0;
     while(true){
+        if(i > 1000){
+          std::cout << "Infinite Loop!\n";
+          break;
+        }
         if(tagList.eof()){
-            std::cout << "TagList EOF!\n";
-            break;
+          std::cout << "End of File!" << "\n";
+          break;
         }
-        /*
-            tagListRawVector.resize(i+1);
-            std::getline(tagList, tagListLine);
-            tagListRawVector[i] = tagListLine;
             i++;
-        */
-        getline(tagList, currentLine);
-        if(currentLine.compare("[*")){
-            while(currentLine != "*]"){
-	            
-            }
-        }
-        
-        }
-    
-        if(tagListRawVector.size() == 0){
-            std::cout << "Tag List Vector is empty\n";
-        }
-        
+            stream >> token;
+            std::cout << token << "Iteration " << i << "\n";
+          }    
 }
 
 //Testing methods, leaving in case of need
