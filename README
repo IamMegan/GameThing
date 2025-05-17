@@ -1,3 +1,9 @@
 Hi, I'm (attempting) to make a Dwarf Fortress clone with inclusions of things I happen to be fond of. I'm making this public for the hell of it, my code is so bad no one would ever think to steal it, and if anyone wants to make a suggestion (if you can even parse what I'm doing) or give an example of something I'm trying to do, feel free to make a pull rq and I'll make sure to credit you wherever I can. 
 
 And if you have the urge to make fun of me, I don´t care either way. I´m doing this to learn so I know it will be awful and terrible and I'm ok with that. 
+
+The editor I'm using is Neovim with NVChad installed, which I haven't figured out how to enable syntax error reporting, so if you see a bug, I just didn´t know about it. 
+
+This is being written in 100% C/C++ for now, and is being compiled and tested using g++. I´m trying to avoid any specific libraries to maintain portability and to challenge myself.
+
+Yes, I am trying to write my own config file type and a reader for it, and it is going about as well as you would think. 
