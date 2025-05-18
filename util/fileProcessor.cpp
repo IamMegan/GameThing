@@ -33,7 +33,11 @@ void loadFile(){
     }
     else{
       std::cout << "read success!" << "\n" << stream.str() << "\n";
-      
+      for(std::string token; getline(stream, token, ';');){
+        contents.push_back(token);
+        std::cout << token << "\n";
+        } 
+      }
     }
     /*
     std::string token;
@@ -49,5 +53,4 @@ void loadFile(){
       }
     } 
     */
-}
 
