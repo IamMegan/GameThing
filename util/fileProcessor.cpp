@@ -26,6 +26,7 @@ int main(int argc, char** argv){;
 //Load file contents into the stream
 void loadFile(){
     std::cout << "loading file..." << "\n";
+    //avoid the problem entirely by passing the stream pointer from the fstream to the sstream. No loop needed! I think that's whats happening
     stream << file.rdbuf();
     file.close();
     if(stream.str().length() == 0){
@@ -33,6 +34,7 @@ void loadFile(){
     }
     else{
       std::cout << "read success!" << "\n" << stream.str() << "\n";
+      //apparently you can just for-each over a stream which distrubs me greatly.
       for(std::string token; getline(stream, token, ';');){
         contents.push_back(token);
         std::cout << token << "\n";
