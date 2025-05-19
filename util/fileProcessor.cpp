@@ -21,7 +21,7 @@ int main(int argc, char** argv){;
       return 1;
     }
     else{
-      std::cout << "File not opened." << "\n";
+      std::cerr << "File not opened." << "\n";
       return 1;
     }
 }
@@ -33,10 +33,10 @@ void loadFile(){
     stream << file.rdbuf();
     file.close();
     if(stream.str().length() == 0){
-      std::cout << "Reading failed" << "\n";
+      std::cerr << "Reading failed" << "\n";
     }
     else{
-      std::cerr << "read success!" << "\n" << stream.str() << "\n";
+      std::cout << "read success!" << "\n" << stream.str() << "\n";
     }
 }
 
