@@ -34,25 +34,5 @@ void loadFile(){
     }
     else{
       std::cout << "read success!" << "\n" << stream.str() << "\n";
-      //apparently you can just for-each over a stream which distrubs me greatly.
-      for(std::string token; getline(stream, token, ';');){
-        contents.push_back(token);
-        std::cout << token << "\n";
-        } 
-      }
     }
-    /*
-    std::string token;
-    while(getline(fstream, token, ';')){
-        contents.push_back(token);
-      }
-      if(contents.size() == 0){
-        std::cout << "reading failed." << "\n";
-      }
-      else{
-        for (unsigned long i = 0; i < contents.size(); i++) {
-        std::cout << contents[i] << "\n"; 
-      }
-    } 
-    */
-
+}
