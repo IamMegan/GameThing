@@ -6,11 +6,10 @@
 
 enum fileType {$material, $species};
 std::fstream file;
-std::string fileType;
 std::stringstream stream;
 std::vector<std::string> contents;
 void loadFile();
-std::vector<std::string> packageData();
+void packageData();
 
 int main(int argc, char** argv){;
     file.open(argv[1]);
@@ -40,23 +39,23 @@ void loadFile(){
     }
 }
 
-std::vector<std::string> packageData(){
+void packageData(){
   //Now that I'm understanding stringstream better, this is so nice. 
-  stream >> fileType;
+  std::string token;
+  stream >> token;
+  fileType type; 
   
-  if(!fileType.compare("$material")){
-    std::cout << "This is a material file" << "\n";
+  if(!token.compare("$material")) {type = $material;}
 
+  else if (!token.compare("$species")) {type = $species;}
+  
+  else{std::cerr << "Unrecognized fileType." << "\n";}
+
+  switch(type){
+    case $material: std::cout << "file type succesfully parsed as material.\n";
+    break;
+
+    case $species: std::cout << "file type succesfully parsed as species.\n";
+    break;
   }
-  else if (!fileType.compare("$species")) {
-    
-  }
-  else{
-    std::cerr << "Unrecognized fileType." << "\n";
-  }
-    
-  //testing stuff
-  std::vector<std::string> temptestvec;
-  temptestvec.push_back(fileType);
-  return temptestvec;
 }
