@@ -7,7 +7,8 @@
 enum fileType {$material, $species};
 std::fstream file;
 std::stringstream stream;
-std::vector<std::string> contents;
+std::vector<std::string> streamContents;
+std::vector<std::string> comments;
 void loadFile();
 void packageData();
 

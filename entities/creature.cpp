@@ -1,11 +1,9 @@
-#pragma once
 #include <iostream>
 #include <vector>
 #include <string>
-#include "item.h"
-#include "biome.h"
-#include "realm.h"
-
+#include "../headers/item.h"
+#include "../headers/realm.h"
+#include "../headers/biome.h"
 class creature{
     
     //This is hideous, probably because Im a dogshit programmer
@@ -34,7 +32,6 @@ class creature{
     void move();
 
     creature beBorn(std::string spec){
-      strcpy(species, spec);
-      return creature c; 
+      this->species = spec;
     } 
 };
