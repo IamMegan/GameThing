@@ -1,6 +1,8 @@
 $material
 
-# Color is given in hex code, dencity in g/cm3,all temperatures in Kelvin, Bulk Modulus in Gigapascals. variables that start with 
+#Comments are denoted with a hash, color is in hex, density is in g/cm3, temps are in kelvin, and bulkMod is in Gigapascals 
+#You must start every comment line with a hash.
+
 {
   name("copper");
   color(0xF16B20);

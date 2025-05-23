@@ -3,6 +3,7 @@
 #include <fstream>
 #include <vector>
 #include <sstream>
+#include <limits>
 #include "../data/struct/material.h"
 
 enum fileType {$material, $species};
@@ -10,6 +11,7 @@ std::fstream file;
 std::stringstream stream;
 std::vector<std::string> streamContents;
 void loadFile();
+void removeCommentsFromStream();
 void packageData();
 void packageMaterialData();
 
@@ -18,10 +20,12 @@ int main(int argc, char** argv){;
     if(file){
       std::cout << "File open!" << "\n";
       loadFile();
-      packageData();
+      std::cout << stream.str();
+      removeCommentsFromStream();
+      std::cout << stream.str();
+      //vpackageData();
       return 0;
-    }
-    else{
+    }else{
       std::cerr << "File not opened." << "\n";
       return 1;
     }
@@ -29,29 +33,26 @@ int main(int argc, char** argv){;
 
 //Load file contents into the stream. Note this does not populate a vector or anything, simply the stringstream object.
 void loadFile(){
-    std::cout << "loading file..." << "\n";
+    std::cout << "loading file...\n";
     //avoid the problem entirely by passing the stream pointer from the fstream to the sstream. No loop needed! I think that's whats happening. Not actually sure what's happening within the library.
     stream << file.rdbuf();
     file.close();
     if(stream.str().length() == 0){
-      std::cerr << "Reading failed" << "\n";
+      std::cerr << "Reading failed\n";
     }
     else{
-      std::cout << "read success!" << "\n";
+      std::cout << "Read success!\n";
     }
 }
-
-void packageMaterialData(){
-  int i = stream.tellg();
+void removeCommentsFromStream(){
+  std::cout << "Removing comments...\n";
   while(!stream.eof()){
-    if(stream.peek() == '#'){
-      stream.ignore('#');
-      stream.seekg(i);
-      i++;
+    if(stream.get() == '#'){
+      stream.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+      std::cout << "comment removed\n";
     }
-    if(i > 100){break;};
-  }
-  std::cout << stream.str();
+  }  
+  stream.flush();
 }
 
 void packageData(){
@@ -82,3 +83,4 @@ void packageData(){
   }
 }
 
+void packageMaterialData(){}
