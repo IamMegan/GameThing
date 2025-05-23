@@ -3,14 +3,15 @@
 #include <fstream>
 #include <vector>
 #include <sstream>
+#include "../data/struct/material.h"
 
 enum fileType {$material, $species};
 std::fstream file;
 std::stringstream stream;
 std::vector<std::string> streamContents;
-std::vector<std::string> comments;
 void loadFile();
 void packageData();
+void packageMaterialData();
 
 int main(int argc, char** argv){;
     file.open(argv[1]);
@@ -18,7 +19,7 @@ int main(int argc, char** argv){;
       std::cout << "File open!" << "\n";
       loadFile();
       packageData();
-      return 1;
+      return 0;
     }
     else{
       std::cerr << "File not opened." << "\n";
@@ -36,8 +37,21 @@ void loadFile(){
       std::cerr << "Reading failed" << "\n";
     }
     else{
-      std::cout << "read success!" << "\n" << stream.str() << "\n";
+      std::cout << "read success!" << "\n";
     }
+}
+
+void packageMaterialData(){
+  int i = stream.tellg();
+  while(!stream.eof()){
+    if(stream.peek() == '#'){
+      stream.ignore('#');
+      stream.seekg(i);
+      i++;
+    }
+    if(i > 100){break;};
+  }
+  std::cout << stream.str();
 }
 
 void packageData(){
@@ -45,18 +59,26 @@ void packageData(){
   std::string token;
   stream >> token;
   fileType type; 
-  
+  std::vector<std::string> tokens;
   if(!token.compare("$material")) {type = $material;}
 
   else if (!token.compare("$species")) {type = $species;}
   
   else{std::cerr << "Unrecognized fileType." << "\n";}
-
+/*  
+  while(!stream.eof()){
+    tokens.push_back(token);
+  }
+*/
   switch(type){
-    case $material: std::cout << "file type succesfully parsed as material.\n";
+    case $material: 
+      std::cout << "file type succesfully parsed as material.\n";
+      packageMaterialData();
     break;
 
-    case $species: std::cout << "file type succesfully parsed as species.\n";
+    case $species: 
+      std::cout << "file type succesfully parsed as species.\n";
     break;
   }
 }
+
